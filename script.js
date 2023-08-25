@@ -18,21 +18,28 @@ const loadDivs = (container) => {
 };
 loadDivs(container);
 
-const getColorAtCoordinates = ({ x, y }, offset) => {
-	return `background-color: hsl(${
-		(perlin.get(offset + x / 20, offset - y / 20) + 1) * 180
-	}, 100%, 50%)`
+const getNoiseAtCoordinates = ({ x, y }, offset, strength) => {
+	return (perlin.get(offset + x / 20, offset - y / 20) + 1) * strength;
 };
 
 const fillColors = (offset) => {
-	for(let i = 0; i < 20; i ++) {
-		for(let j = 0; j < 20; j ++) {
+	for (let i = 0; i < 20; i++) {
+		for (let j = 0; j < 20; j++) {
 			let space = document.querySelector(`#X${i}Y${j}`);
 
-			space.style = getColorAtCoordinates({
-				x: i,
-				y: j
-			}, offset);
+			space.style = `background-color: hsl(${getNoiseAtCoordinates(
+				{ x: i, y: j },
+				offset,
+				180
+			)}, 100%, 50%); top: ${getNoiseAtCoordinates(
+				{ x: i, y: j },
+				offset,
+				35
+			)}px; right: ${getNoiseAtCoordinates(
+				{ x: i, y: j },
+				offset,
+				35
+			)}px`;
 		}
 	}
 
@@ -40,14 +47,14 @@ const fillColors = (offset) => {
 };
 
 let temp = startValue;
-window.setInterval(() => {temp = fillColors(temp)}, 15);
+window.setInterval(() => {
+	temp = fillColors(temp);
+}, 30);
 
 const fixSize = () => {
 	const sideLength = Math.min(window.innerHeight, window.innerWidth);
 
-	bigBox.style = `width: ${
-		sideLength / 1.4
-	}px; height: ${
+	bigBox.style = `width: ${sideLength / 1.4}px; height: ${
 		sideLength / 1.4
 	}px`;
 };

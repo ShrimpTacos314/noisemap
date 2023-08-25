@@ -14,7 +14,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 5px 5px 5px #00000050;
+    position: relative;
+    left: 31px;
+    bottom: 31px;
 }
 
 .row {
@@ -26,6 +28,7 @@ body {
 .space {
     /*margin: 5px;*/
     width: 5%;
+    position: relative;
 }
 
 #sidebar {
