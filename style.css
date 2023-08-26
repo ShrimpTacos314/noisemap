@@ -15,8 +15,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    left: 31px;
-    bottom: 31px;
 }
 
 .row {
