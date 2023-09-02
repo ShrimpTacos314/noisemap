@@ -9,6 +9,6 @@ Essentially, this page displays a 20-by-20 grid of squares. The colors and posit
 The net result is that this simulation displays a unique wavy pattern of constantly changing colors, not unlike a sheet billowing in the wind.
 
 ### What Needs Done
-- [ ] Add some interactivity—sliders to control speed, resolution, hue, and the like. There is already a sub-menu being created for this purpose
-- [ ] ~~Fix lag and~~ improve efficiency
+- [x] Add some interactivity—sliders to control speed, resolution, hue, and the like.
+- [ ] Stop this thing from grinding to a halt after four to five seconds
 - [ ] Comment and clean code
