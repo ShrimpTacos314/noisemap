@@ -44,16 +44,15 @@ const fillColors = (offset) => {
 			document.querySelector(
 				`#X${i}Y${j}`
 			).style = `background-color: hsl(${
-				// getNoiseAtCoordinates(
-				// 	{ x: i, y: j },
-				// 	offset,
-				// 	getNoiseConfig({
-				// 		res: "res",
-				// 		pos: "hue",
-				// 		strength: "strength",
-				// 	})
-				// )
-				test({x: i, y: j}, offset)
+				getNoiseAtCoordinates(
+					{ x: i, y: j },
+					offset,
+					getNoiseConfig({
+						res: "res",
+						pos: "hue",
+						strength: "strength",
+					})
+				)
 			}, 100%, 50%); top: ${getNoiseAtCoordinates(
 				{ x: i, y: j },
 				offset,
@@ -78,9 +77,13 @@ const fillColors = (offset) => {
 };
 
 let temp = startValue;
-window.setInterval(() => {
+
+const act = () => {
 	temp = fillColors(temp);
-}, 50);
+	window.requestAnimationFrame(act);
+};
+
+window.requestAnimationFrame(act);
 // document.addEventListener("wheel", () => {
 // 	temp = fillColors(temp);
 // })
