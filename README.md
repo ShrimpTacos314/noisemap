@@ -10,5 +10,6 @@ The net result is that this simulation displays a unique wavy pattern of constan
 
 ### What Needs Done
 - [x] Add some interactivity—sliders to control speed, resolution, hue, and the like.
-- [ ] Stop this thing from grinding to a halt after four to five seconds
-- [ ] Comment and clean code
+- [x] Stop this thing from grinding to a halt after four to five seconds
+- [x] Comment and clean code
+- [ ] Fix movement bugs
