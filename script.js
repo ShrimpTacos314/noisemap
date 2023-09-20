@@ -43,9 +43,7 @@ const getNoiseAtCoordinates = ({ x, y }, offset, config) => {
 	//We start by getting the X and Y coordinates to pass to the Perlin noise function: offset added to either x or y, divided by config.res.
 	//This value is then added to config.pos to change the position, and multiplied by config.rng to change the range.
 	return (
-		(perlin.get(offset + x / config?.res, offset - y / config?.res) +
-			+config?.pos) *
-		config?.rng
+		(perlin.get(offset + x / config?.res, offset - y / config?.res) + +config?.pos) * config?.rng
 	);
 };
 
